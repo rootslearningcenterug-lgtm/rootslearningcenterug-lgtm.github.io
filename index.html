@@ -45,8 +45,8 @@
         }
 
         .logo-img {
-            height: 50px;
-            width: 50px;
+            height: 55px;
+            width: 55px;
             object-fit: contain;
             border-radius: 50%;
         }
@@ -205,6 +205,66 @@
             font-size: 15px;
         }
 
+        /* Student Reviews Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border-left: 5px solid #1b5e20;
+            position: relative;
+        }
+
+        .stars {
+            color: #f59e0b;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #4a5568;
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .reviewer-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #1b5e20;
+            font-size: 18px;
+        }
+
+        .reviewer-details h4 {
+            font-size: 16px;
+            color: #2d3748;
+            margin-bottom: 2px;
+        }
+
+        .reviewer-details span {
+            font-size: 13px;
+            color: #718096;
+        }
+
         /* Enrollment Form Section */
         .form-wrapper {
             background: #ffffff;
@@ -321,6 +381,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#courses">Courses</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#enroll">Enroll Now</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -395,52 +456,103 @@
         </div>
     </section>
 
-    <!-- Enrollment Form Section -->
-    <section class="container" id="enroll">
-        <h2>Student Registration</h2>
-        <p class="section-subtitle">Secure your place in our next virtual intake by submitting your details below</p>
+    <!-- Student Reviews Section -->
+    <section class="container" id="reviews">
+        <h2>What Our Students Say</h2>
+        <p class="section-subtitle">Real experiences from adult learners building their roots with us</p>
         
-        <div class="form-wrapper">
-            <form action="mailto:rootslearningcenter@gmail.com" method="GET" enctype="text/plain">
-                
-                <div class="form-group">
-                    <label for="name">Full Student Name:</label>
-                    <input type="text" id="name" name="Student Name" placeholder="Enter your full name" required>
+        <div class="reviews-grid">
+            
+            <!-- Review 1 -->
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"I always thought I was too late to master professional computer tools, but the step-by-step guidance here gave me so much confidence. I now prepare official documents at work easily!"</p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar">K</div>
+                    <div class="reviewer-details">
+                        <h4>Kirabo S.</h4>
+                        <span>Computer Studies Student</span>
+                    </div>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="phone">Active Mobile Contact Number:</label>
-                    <input type="tel" id="phone" name="Mobile Contact" placeholder="e.g., +256 700 000000" required>
+            <!-- Review 2 -->
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"The virtual classes are super flexible with my busy work schedule. My spoken English and formal writing improved massively in just a few stages!"</p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar">R</div>
+                    <div class="reviewer-details">
+                        <h4>Ruth T.</h4>
+                        <span>English Studies Student</span>
+                    </div>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="course">Program Selection:</label>
-                    <select id="course" name="Selected Program" required>
-                        <option value="" disabled selected>-- Select a Course --</option>
-                        <option value="English Studies">English Studies</option>
-                        <option value="Computer Studies">Computer Studies (ICT)</option>
-                        <option value="Kiswahili Studies">Kiswahili Studies</option>
-                        <option value="Multiple Programs">Multiple Programs Combined</option>
-                    </select>
+            <!-- Review 3 -->
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Patient instructors and practical online lessons. Roots Learning Center truly lives up to its motto—no start is late!"</p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar">A</div>
+                    <div class="reviewer-details">
+                        <h4>Alex M.</h4>
+                        <span>Kiswahili Studies Student</span>
+                    </div>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="message">Briefly Outline Your Academic Goals:</label>
-                    <textarea id="message" name="Learning Goals" rows="4" placeholder="Share any specific areas you wish to focus on..."></textarea>
-                </div>
+        </div>
+    </section>
 
-                <button type="submit" class="submit-btn">Submit Application</button>
-            </form>
+    <!-- Enrollment Form Section -->
+    <section class="container" style="background-color: #f7fafc; max-width: 100%;" id="enroll">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+            <h2>Student Registration</h2>
+            <p class="section-subtitle">Secure your place in our next virtual intake by submitting your details below</p>
+            
+            <div class="form-wrapper">
+                <form action="mailto:rootslearningcenterug@gmail.com" method="GET" enctype="text/plain">
+                    
+                    <div class="form-group">
+                        <label for="name">Full Student Name:</label>
+                        <input type="text" id="name" name="Student Name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Active Mobile Contact Number:</label>
+                        <input type="tel" id="phone" name="Mobile Contact" placeholder="e.g., +256 700 000000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="course">Program Selection:</label>
+                        <select id="course" name="Selected Program" required>
+                            <option value="" disabled selected>-- Select a Course --</option>
+                            <option value="English Studies">English Studies</option>
+                            <option value="Computer Studies">Computer Studies (ICT)</option>
+                            <option value="Kiswahili Studies">Kiswahili Studies</option>
+                            <option value="Multiple Programs">Multiple Programs Combined</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Briefly Outline Your Academic Goals:</label>
+                        <textarea id="message" name="Learning Goals" rows="4" placeholder="Share any specific areas you wish to focus on..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="container" style="background-color: #f7fafc; max-width: 100%;" id="contact">
+    <section class="container" id="contact">
         <h2>Connect With Us Directly</h2>
         <p class="section-subtitle">Our support desk is online and ready to receive your questions</p>
         <div class="contact-info">
             <p><strong>💻 Platform Status:</strong> 100% Digital / Distance Learning</p>
-            <p><strong>📧 Administrative Email:</strong> <a href="mailto:rootslearningcenter@gmail.com">rootslearningcenter@gmail.com</a></p>
+            <p><strong>📧 Administrative Email:</strong> <a href="mailto:rootslearningcenterug@gmail.com">rootslearningcenterug@gmail.com</a></p>
             <p><strong>📞 Contact Lines:</strong> <a href="tel:+256708487985">+256 708 487 985</a> / <a href="tel:+256794112254">+256 794 112 254</a></p>
         </div>
     </section>
