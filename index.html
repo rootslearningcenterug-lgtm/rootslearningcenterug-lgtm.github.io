@@ -210,6 +210,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            margin-bottom: 50px;
         }
 
         .review-card {
@@ -265,7 +266,31 @@
             color: #718096;
         }
 
-        /* Enrollment Form Section */
+        /* Review Submission Form */
+        .add-review-box {
+            background: #ffffff;
+            border: 2px dashed #1b5e20;
+            border-radius: 12px;
+            padding: 35px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .add-review-box h3 {
+            color: #1b5e20;
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+
+        .add-review-box p {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        /* Shared Form Styles */
         .form-wrapper {
             background: #ffffff;
             max-width: 650px;
@@ -321,6 +346,14 @@
             background-color: #0f3813;
         }
 
+        .status-msg {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #1b5e20;
+            display: none;
+        }
+
         /* Contact Section */
         .contact-info {
             text-align: center;
@@ -361,7 +394,7 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-            .form-wrapper {
+            .form-wrapper, .add-review-box {
                 padding: 25px;
             }
         }
@@ -458,20 +491,20 @@
 
     <!-- Student Reviews Section -->
     <section class="container" id="reviews">
-        <h2>What Our Students Say</h2>
-        <p class="section-subtitle">Real experiences from adult learners building their roots with us</p>
+        <h2>English Student Reviews</h2>
+        <p class="section-subtitle">Read what our English learners say about our classes</p>
         
-        <div class="reviews-grid">
+        <div class="reviews-grid" id="reviews-container">
             
             <!-- Review 1 -->
             <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p class="review-text">"I always thought I was too late to master professional computer tools, but the step-by-step guidance here gave me so much confidence. I now prepare official documents at work easily!"</p>
+                <p class="review-text">"I can now speak English with confidence. My teacher is very good and patient. I am happy with my progress."</p>
                 <div class="reviewer-info">
-                    <div class="reviewer-avatar">K</div>
+                    <div class="reviewer-avatar">R</div>
                     <div class="reviewer-details">
-                        <h4>Kirabo S.</h4>
-                        <span>Computer Studies Student</span>
+                        <h4>Ruth T.</h4>
+                        <span>English Student</span>
                     </div>
                 </div>
             </div>
@@ -479,12 +512,12 @@
             <!-- Review 2 -->
             <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p class="review-text">"The virtual classes are super flexible with my busy work schedule. My spoken English and formal writing improved massively in just a few stages!"</p>
+                <p class="review-text">"I learned how to make simple sentences. The online lessons are easy to follow after work."</p>
                 <div class="reviewer-info">
-                    <div class="reviewer-avatar">R</div>
+                    <div class="reviewer-avatar">S</div>
                     <div class="reviewer-details">
-                        <h4>Ruth T.</h4>
-                        <span>English Studies Student</span>
+                        <h4>Sarah N.</h4>
+                        <span>English Student</span>
                     </div>
                 </div>
             </div>
@@ -492,27 +525,68 @@
             <!-- Review 3 -->
             <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p class="review-text">"Patient instructors and practical online lessons. Roots Learning Center truly lives up to its motto—no start is late!"</p>
+                <p class="review-text">"I knew zero English before. Now I can read and write basic words correctly. Thank you!"</p>
                 <div class="reviewer-info">
-                    <div class="reviewer-avatar">A</div>
+                    <div class="reviewer-avatar">D</div>
                     <div class="reviewer-details">
-                        <h4>Alex M.</h4>
-                        <span>Kiswahili Studies Student</span>
+                        <h4>Daniel K.</h4>
+                        <span>English Student</span>
                     </div>
                 </div>
             </div>
 
         </div>
+
+        <!-- Add Your Own Review Form -->
+        <div class="add-review-box">
+            <h3>Are you a student? Leave a Review!</h3>
+            <p>Share your experience with new students below</p>
+            
+            <form id="review-form" action="https://formspree.io/f/mgognnvy" method="POST">
+                <input type="hidden" name="_subject" value="New Student Review Received!">
+                
+                <div class="form-group">
+                    <label for="rev-name">Your Name:</label>
+                    <input type="text" id="rev-name" name="Student Name" placeholder="e.g. John M." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="rev-course">Your Program:</label>
+                    <select id="rev-course" name="Program Studied" required>
+                        <option value="English Studies" selected>English Studies</option>
+                        <option value="Computer Studies">Computer Studies (ICT)</option>
+                        <option value="Kiswahili Studies">Kiswahili Studies</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="rev-rating">Star Rating:</label>
+                    <select id="rev-rating" name="Rating" required>
+                        <option value="★★★★★ (5/5)">★★★★★ (5 Stars)</option>
+                        <option value="★★★★☆ (4/5)">★★★★☆ (4 Stars)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="rev-comment">Your Short Review:</label>
+                    <textarea id="rev-comment" name="Review Comment" rows="3" placeholder="Write a short message about your learning experience..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit My Review</button>
+                <p id="review-status" class="status-msg">Thank you! Your review has been submitted for approval.</p>
+            </form>
+        </div>
     </section>
 
-    <!-- Enrollment Form Section -->
+    <!-- Direct On-Site Registration Form Section -->
     <section class="container" style="background-color: #f7fafc; max-width: 100%;" id="enroll">
         <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
             <h2>Student Registration</h2>
-            <p class="section-subtitle">Secure your place in our next virtual intake by submitting your details below</p>
+            <p class="section-subtitle">Complete your application directly below without opening an external email app</p>
             
             <div class="form-wrapper">
-                <form action="mailto:rootslearningcenterug@gmail.com" method="GET" enctype="text/plain">
+                <form id="enrollment-form" action="https://formspree.io/f/mgognnvy" method="POST">
+                    <input type="hidden" name="_subject" value="New Student Application - Roots Learning Center">
                     
                     <div class="form-group">
                         <label for="name">Full Student Name:</label>
@@ -540,7 +614,8 @@
                         <textarea id="message" name="Learning Goals" rows="4" placeholder="Share any specific areas you wish to focus on..."></textarea>
                     </div>
 
-                    <button type="submit" class="submit-btn">Submit Application</button>
+                    <button type="submit" class="submit-btn">Submit Application directly</button>
+                    <p id="enroll-status" class="status-msg">Thank you! Your application has been submitted successfully.</p>
                 </form>
             </div>
         </div>
@@ -561,6 +636,67 @@
     <footer>
         <p>&copy; 2026 Roots Learning Center. All Rights Reserved. | No start is late</p>
     </footer>
+
+    <!-- Form Handling Scripts -->
+    <script>
+        // Enrollment Form Handler
+        const enrollForm = document.getElementById("enrollment-form");
+        const enrollStatus = document.getElementById("enroll-status");
+
+        enrollForm.addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: enrollForm.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    enrollStatus.style.display = "block";
+                    enrollStatus.style.color = "#1b5e20";
+                    enrollStatus.innerText = "✓ Application submitted successfully! We will contact you shortly.";
+                    enrollForm.reset();
+                } else {
+                    enrollStatus.style.display = "block";
+                    enrollStatus.style.color = "red";
+                    enrollStatus.innerText = "Oops! There was a problem submitting your application.";
+                }
+            }).catch(error => {
+                enrollStatus.style.display = "block";
+                enrollStatus.style.color = "red";
+                enrollStatus.innerText = "Oops! Network error submitting form.";
+            });
+        });
+
+        // Review Submission Form Handler
+        const reviewForm = document.getElementById("review-form");
+        const reviewStatus = document.getElementById("review-status");
+
+        reviewForm.addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: reviewForm.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    reviewStatus.style.display = "block";
+                    reviewStatus.style.color = "#1b5e20";
+                    reviewStatus.innerText = "✓ Thank you! Your review was sent to our team.";
+                    reviewForm.reset();
+                } else {
+                    reviewStatus.style.display = "block";
+                    reviewStatus.style.color = "red";
+                    reviewStatus.innerText = "Oops! There was a problem sending your review.";
+                }
+            }).catch(error => {
+                reviewStatus.style.display = "block";
+                reviewStatus.style.color = "red";
+                reviewStatus.innerText = "Oops! Network error submitting review.";
+            });
+        });
+    </script>
 
 </body>
 </html>
